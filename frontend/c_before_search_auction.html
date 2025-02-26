@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before Search Auction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      /* Black Header Section */
+      .header {
+        background-color: black;
+        width: 100%;
+        height: 200px;
+        position: relative;
+      }
+
+      /* Container for Model Select */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: -100px;
+        width: 100%;
+      }
+
+      /* Model Selection Box using Grid Layout */
+      .modelSelect {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        background-color: #fff;
+        padding: 40px;
+        width: 60%;
+        min-height: 150px;
+        border-radius: 10px;
+        box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Styling for select boxes */
+      .box {
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        appearance: none;
+        text-align: center;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="%23000000" d="M7 10l5 5 5-5H7z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 14px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Search button styling */
+      button {
+        padding: 10px 20px;
+        background-color: #d9dfe5;
+        color: black;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        height: 45px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      button:hover {
+        background-color: #5274e2;
+        color: white;
+      }
+
+           /* Table styling */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around the table */
+}
+
+th, td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+/* Header styling */
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Highlight row on hover */
+tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Differentiating the product rows with a subtle shadow and border */
+tbody tr {
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+/* Additional styling for the image in the photos column */
+td img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+
+      /* Responsiveness */
+      @media screen and (max-width: 1024px) {
+        .modelSelect {
+          grid-template-columns: repeat(2, 1fr);
+          width: 80%;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .modelSelect {
+          grid-template-columns: repeat(2, 1fr);
+          width: 80%;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .modelSelect {
+          grid-template-columns: 1fr;
+          width: 80%;
+          padding: 20px;
+        }
+        .box, button {
+          width: 100%;
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Black Header Section -->
+    <div class="header"></div>
+
+    <!-- Model Select Box Positioned Half Inside the Black Section -->
+    <div class="container">
+        <div class="modelSelect">
+            <select class="box" id="make" title="Select Make">
+                <option value="default">Make</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Ford">Ford</option>
+            </select>
+
+            <select class="box" id="model" title="Select Model">
+                <option value="default">Model</option>
+                <option value="Camry">Camry</option>
+                <option value="Civic">Civic</option>
+                <option value="Mustang">Mustang</option>
+                <option value="Aqua">Aqua</option>
+            </select>
+
+            <select class="box" title="Select Year">
+                <option value="default">Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+            </select>
+
+            <select class="box" title="Select Grade">
+                <option value="default">Grade</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4.5">4.5</option>
+            </select>
+
+            <select class="box" title="Select Mileage">
+                <option value="default">Mileage</option>
+                <option value="5000">5,000 Km</option>
+                <option value="10000">10,000 Km</option>
+                <option value="15000">15,000 Km</option>
+            </select>
+
+            <button onclick="showAuctionTable()">Search</button>
+        </div>
+    </div>
+
+    <!-- Table to Display Auction Results -->
+    <div id="auctionTableContainer" style="display:none;">
+        <table id="auctionTable">
+            <thead>
+                <tr>
+                    <th>Photos</th>
+                    <th>Lot Number</th>
+                    <th>Auction Date</th>
+                    <th>Auction</th>
+                    <th>Year</th>
+                    <th>Chassis ID</th>
+                    <th>Engine CC</th>
+                    <th>Equipment</th>
+                    <th>Mileage</th>
+                    <th>Condition</th>
+                    <th>Start</th>
+                    <th>Sold For</th>
+                    <th>Average Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated dynamically here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+      function showAuctionTable() {
+        // Dummy data for auction results, replace this with actual AJAX request to fetch data
+        const auctionData = [
+          {
+            photos: 'img1.jpg',
+            lotNumber: '123',
+            auctionDate: '2025-04-15',
+            auction: 'Bid2Win',
+            year: '2024',
+            chassisId: 'ABC123',
+            engineCC: '2000',
+            equipment: 'Standard',
+            mileage: '5000 Km',
+            condition: 'New',
+            start: '$20,000',
+            soldFor: '$25,000',
+            averagePrice: '$22,500'
+          },
+          {
+            photos: 'img2.jpg',
+            lotNumber: '124',
+            auctionDate: '2025-05-10',
+            auction: 'FastBid',
+            year: '2023',
+            chassisId: 'DEF456',
+            engineCC: '1800',
+            equipment: 'Premium',
+            mileage: '10000 Km',
+            condition: 'Used',
+            start: '$18,000',
+            soldFor: '$22,000',
+            averagePrice: '$20,000'
+          }
+          // More entries would go here...
+        ];
+
+        const tableBody = document.querySelector('#auctionTable tbody');
+        tableBody.innerHTML = '';  // Clear any existing rows
+
+        auctionData.forEach((item) => {
+          const row = document.createElement('tr');
+
+          row.innerHTML = `
+            <td><img src="${item.photos}" alt="Photo" width="50" height="50"></td>
+            <td>${item.lotNumber}</td>
+            <td>${item.auctionDate}</td>
+            <td>${item.auction}</td>
+            <td>${item.year}</td>
+            <td>${item.chassisId}</td>
+            <td>${item.engineCC}</td>
+            <td>${item.equipment}</td>
+            <td>${item.mileage}</td>
+            <td>${item.condition}</td>
+            <td>${item.start}</td>
+            <td>${item.soldFor}</td>
+            <td>${item.averagePrice}</td>
+          `;
+
+          tableBody.appendChild(row);
+        });
+
+        document.getElementById('auctionTableContainer').style.display = 'block';
+      }
+    </script>
+
+</body>
+</html>
