@@ -1,0 +1,204 @@
+body{
+    padding: 0;
+    margin: 0;
+  }
+
+/* Black Header Section */
+.zhomebanner {
+    background-color: #181818;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+.zhomebanner .zbannercontent {
+    position: relative; /* This makes the inner elements position relative to this */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  
+.zhomebanner .zbannercontent .zbannerimage {
+   
+    width: 100%;
+    border-radius: 25px;
+    filter: brightness(50%);
+  }
+  
+  .bannerlogo {
+    position: absolute;
+    top: 30px;
+    left: 30px; 
+    width: 5%; 
+    max-width: 100px; 
+    opacity: 80%;
+  }
+  
+
+/* Container for Model Select */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -100px;
+    width: 100%;
+}
+
+/* Model Selection Box using Grid Layout */
+.modelSelect {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: #fff;
+    padding: 40px;
+    width: 60%;
+    min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.3);
+    margin: 0 auto; /* Center the model select box */
+}
+
+/* Styling for select boxes */
+.box {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    text-align: center;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="%23000000" d="M7 10l5 5 5-5H7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Search button styling */
+button {
+    padding: 10px 20px;
+    background-color: #c5d0dc;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    height: 45px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #5274e2;
+    color: white;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 97%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    max-width: 100%; /* Ensure table fits within the container */
+    overflow-x: auto; /* Enable horizontal scrolling for table on smaller screens */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #7ba2ca;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablet screens */
+@media screen and (max-width: 768px) {
+    .header {
+        height: 150px;
+    }
+
+    .modelSelect {
+        grid-template-columns: 1fr 1fr; /* Adjust to two columns for smaller screens */
+        width: 90%; /* More width to utilize space */
+        padding: 20px;
+    }
+
+    .box {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%; /* Ensure table takes full width */
+        overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+        display: block; /* Make the table scrollable */
+    }
+}
+
+/* For mobile screens */
+@media screen and (max-width: 480px) {
+    .header {
+        height: 120px; /* Reduce header height */
+    }
+
+    .container {
+        margin-top: -60px;
+    }
+
+    .modelSelect {
+        grid-template-columns: 1fr; /* Stack inputs vertically on smaller screens */
+        width: 100%; /* Maximize width */
+        padding: 15px;
+    }
+
+    .box {
+        height: 35px;
+        font-size: 13px;
+    }
+
+    button {
+        height: 35px;
+        font-size: 13px;
+    }
+
+    h2 {
+        font-size: 18px; /* Adjust the font size for smaller screens */
+    }
+
+    table {
+        width: 100%; /* Make the table take full width */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: block; /* Ensure table rows scroll horizontally */
+    }
+
+    th, td {
+        padding: 8px; /* Reduced padding for smaller screens */
+    }
+}
