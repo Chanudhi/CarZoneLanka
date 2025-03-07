@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const carData = {
         "TOYOTA": ["1 SERIES", "AQUA", "ALLION", "ALPHARD", "CAMRY", "COROLLA"],
-        "NISSAN": ["AD", "ALTIMA", "CARAVAN", "CEDRIC", "CIMA", "CIVILIAN"],
+        "NISSAN": ["AD", "ALTIMA", "CARAVAN", "CEDRIC", "CIMA", "CIVILIAN", "LEAF"],
         "HONDA": ["ACCORD", "ACTY TRUCK", "CIVIC", "CR-V", "FIT", "INSIGHT"],
         "MAZDA": ["AXELA", "ATENZA SEDAN", "BONGO", "CX-5", "DEMIO", "RX-8"],
         "SUBARU": ["BRZ", "IMPREZA", "FORESTER", "LEGACY", "OUTBACK", "WRX"],

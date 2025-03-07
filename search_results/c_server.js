@@ -146,5 +146,5 @@ axios.request(config)
 }
 
      // Call API for multiple models
-     const models = ['AXELA', 'COROLLA', 'CIVIC','AQUA'];  // Add more models as needed
+     const models = ['AXELA', 'COROLLA', 'CIVIC','AQUA','LEAF'];  // Add more models as needed
      models.forEach(model => fetchCarData(model));

@@ -105,11 +105,12 @@ button:hover {
 h2 {
     color: #333;
     text-align: center;
+    margin-top: 50px;
 }
 
 table {
     width: 97%;
-    margin: auto;
+    margin: 50px auto;
     border-collapse: collapse;
     background: white;
     max-width: 100%; /* Ensure table fits within the container */
