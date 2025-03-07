@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="c_styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="zhomebanner">
+        <div class="zbannercontent">
+          <img src="../home/zassets/mainimg.png" class="zbannerimage" title="mainimg">
+          <img src="../home/zassets/logowhite.png" class="bannerlogo" title="logowhite">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modelSelect">
+            <select class="box" id="make" title="Select Make">
+                <option value="default">Make</option>
+                <option value="TOYOTA">TOYOTA</option>
+                <option value="HONDA">HONDA</option>
+                <option value="FORD">FORD</option>
+                <option value="MAZDA">MAZDA</option>
+                <option value="NISSAN">NISSAN</option>
+            </select>
+
+            <select class="box" id="model" title="Select Model">
+                <option value="default">Model</option>
+                <!-- Models will be populated dynamically based on the selected Make -->
+            </select>
+
+            <select class="box" id="year" title="Select Year">
+                <option value="default">Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+            </select>
+
+            <select class="box" id="grade" title="Select Grade">
+                <option value="default">Grade</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4.5">4.5</option>
+                <option value="4">4</option>
+                <option value="3.5">3.5</option>
+            </select>
+
+            <select class="box" id="mileage" title="Select Mileage">
+                <option value="default">Mileage</option>
+                <option value="5000">706,000 km </option>
+                <option value="10000">10,000 Km</option>
+                <option value="15000">15,000 Km</option>
+            </select>
+
+            <button onclick="showAuctionTable()">Search</button>
+        </div>
+    </div>
+
+    <div>
+        <h2>Car Auction List</h2>
+        <table id="carTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>photos</th>
+                    <th>Lot Number</th>
+                    <th>Auction Date</th>
+                    <th>Auction</th>
+                    <th>Year</th>
+                    <th>Chassis ID</th>
+                    <th>Engine cc</th>
+                    <th>Mileage</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                    <th>GearBox</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <h2>About us</h2>
+            <p>We at CarZone Lanka (PVT) Ltd provide the most informed and reliable importing service of 
+                Japanese and other foreign automobiles.</p>
+            <img src="../home/zassets/carzonelogo.png" alt="CarZone Logo" class="logo">
+            <div class="social-icons">
+                <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Auction</a></li>
+            </ul>
+        </div>
+      </footer>
+
+    <script src="c_script.js"></script>
+
+</body>
+</html>

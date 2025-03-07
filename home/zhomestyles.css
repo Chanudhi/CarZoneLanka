@@ -1,0 +1,613 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.zhomebanner {
+  background-color: #181818;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.zbannercontent {
+  position: relative; /* This makes the inner elements position relative to this */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.zbannerimage {
+ 
+  width: 100%;
+  border-radius: 25px;
+  filter: brightness(50%);
+}
+
+.bannerlogo {
+  position: absolute;
+  top: 30px;
+  left: 30px; 
+  width: 5%; 
+  max-width: 100px; 
+  opacity: 80%;
+}
+
+
+
+/*replace menu---*/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap');
+/* 
+frosting effect borrowed from pen by _____ I need to find that one again to give proper reference
+*/
+
+:root {
+  --h: 33;
+	--s: 90%;
+	--l: 90%;
+  font-family: 'Noto Sans', sans-serif;
+
+}
+
+
+
+.glass-btn {
+
+
+  user-select: none;
+  font-size: clamp(1.2rem, 5vw + 1rem, 2.5rem);
+  width: 10em;
+  height: 2.5em;
+  
+  border-radius: 0.5em;
+  background-image: linear-gradient(#0003,#fffcfc00);
+  
+  box-shadow:
+		0 -0.125em 0.25em #0002,
+		0 0.25em 0.25em hsl(var(--h) var(--s) var(--l) / 0.5),
+		0 0 0 0.1em hsl(var(--h) var(--s) var(--l) / 0.5),
+		0 0.175em 0.3em hsl(var(--h) var(--s) var(--l) / 0.5) inset,
+		0 -0.025em 0.175em hsl(var(--h) var(--s) var(--l) / 0.4) inset,
+		0 -0.25em 1em 0.3em hsl(var(--h) var(--s) var(--l) / 0.3) inset,
+		0 0.6em 0 hsl(var(--h) var(--s) var(--l) / 0.3) inset,
+		0 2em 1em #0004;
+  backdrop-filter: blur(0.15em);
+  
+  display: grid;
+  place-content: center;
+  color: hsl(var(--h) var(--s) var(--l) / .7);
+  text-shadow: 
+    0.03em 0.03em #fff5,
+    -0.03em -0.03em #0005;
+  cursor: pointer;
+  transition: 0.1s ease;
+  padding-top: 0.2em;
+  font-size: 14px;
+
+  position: absolute;
+  top: 30px;
+  right: 40px; 
+  opacity: 70%;
+  cursor: pointer;
+  
+  z-index: 1000;
+  
+}
+
+.glass-btn:before {
+  content: '';
+	position: absolute;
+  top: 100%;
+  width: 80%;
+  left: 10%;
+  height: 1.5em;
+  
+  background-image: 
+    radial-gradient(
+      100% 100% at center,
+      hsla(var(--h),var(--s),80%,0.25),
+      hsla(var(--h),var(--s),80%,0) 50%);
+}
+
+.glass-btn:after {
+  content: '';
+  inset: 0;
+  top: 0.5em;
+  position: absolute;
+  
+  background-image: 
+    linear-gradient(
+      105deg,
+      transparent 20%,
+      hsl(var(--h) var(--s) var(--l) / .2) 20%,
+      hsl(var(--h) var(--s) var(--l) / .2) 30%,
+      transparent 30%,
+      transparent 32%,
+      hsl(var(--h) var(--s) var(--l) / .2) 5%,
+      hsl(var(--h) var(--s) var(--l) / .2) 40%,
+      transparent 0%
+    );
+  background-size: 400% 100%;
+  background-position: 100% 0%;
+  transition: .3s ease;
+}
+.glass-btn:active:after {
+  background-position: -50% 0%;
+}
+
+.glass-btn:active {
+  translate: .01em .25em;
+  box-shadow:
+		0 -0.125em 0.25em #0002,
+		0 0.25em 0.25em hsl(var(--h) var(--s) var(--l) / 0.5),
+		0 0 0 0.1em hsl(var(--h) var(--s) var(--l) / 0.5),
+		0 0.175em 0.3em hsl(var(--h) var(--s) var(--l) / 0.8) inset,
+		0 -0.025em 0.175em hsl(var(--h) var(--s) var(--l) / 0.4) inset,
+		0 -0.25em 1em 0.3em hsl(var(--h) var(--s) var(--l) / 0.3) inset,
+		0 0.6em 0 hsl(var(--h) var(--s) var(--l) / 0.3) inset,
+		0 1em 0.5em #0004;
+  backdrop-filter: blur(0.08em);
+}
+.glass-btn:active:before {
+  height: 1em;
+}
+
+/*replacemenu done*/
+
+.bannertitle{
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Agdasima", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+  letter-spacing: 20px;
+  word-spacing: 40px;
+}
+
+
+.search-bar {
+  position: absolute;
+  top:120px;
+  display: flex;
+  background: #333;
+  padding: 10px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  gap:10px;
+  width: 400px;
+  opacity: 65%;
+}
+
+select, button {
+  background: transparent;
+  border: none;
+  color: rgb(247, 0, 0);
+  padding: 10px;
+  font-size: 16px;
+}
+
+select {
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+button i {
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .zhomebanner {
+    height: 100vh; /* Make it full screen height */
+    width: 100vw; /* Full screen width */
+    background-image: url("./zassets/mainimg.png");
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the background */
+    background-repeat: no-repeat; 
+  }
+
+  .zbannercontent {
+    width: 100%; /* Make it take full width */
+    height: 100%; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .zbannerimage {
+    display: none; /* Hide the img tag, as we're using the background */
+  }
+
+  .bannertitle{
+
+    letter-spacing: 8px;
+    word-spacing: 15px;
+    font-size: 40px;
+  }
+
+  .search-bar {
+
+    padding: 10px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    width: 300px;
+    opacity: 65%;
+  }
+  
+  select, button {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .glass-btn{
+    font-size: 10px;
+  }
+  
+}
+
+
+.zhomewhy{
+  height: auto;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+
+
+.whyimage{
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+
+
+}
+
+.whyimage img{
+  width: 80%;
+  height: auto;
+  display: block;
+
+}
+
+.whycontent{
+  background-color: rgb(255, 255, 255);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: auto;
+  flex: 1;
+  min-height: 40vh;
+}
+
+.whycontent div {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  background-color: #181818;
+  min-height: 40vh;
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+  flex-direction: column; 
+  padding-top: 60px; 
+  border-radius: 6px;
+}
+
+.whycontent div h1 {
+  color: white;
+  font-size: 60px;
+  position: absolute;
+  top: 10px; 
+  left: 20px;
+  margin: 0;
+  font-family: "Inter", serif;
+  font-weight: bold;
+  
+}
+
+.whycontent div h2, 
+.whycontent div p {
+  color: white;
+  text-align: center;
+  width: 80%; 
+}
+
+.whycontent div h2 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.whycontent div p {
+  font-size: 16px;
+  margin-top: 10px; 
+  
+}
+
+
+@media(min-width:768px){
+  .zhomewhy{
+    flex-direction: row;
+    height: 60vh;
+  }
+
+  .whyimage{
+    max-width: 35%;
+  }
+
+  .whycontent div{
+    padding: 20px;
+    width: 80%;
+    border-radius: none;
+  }
+
+  .whycontent div h1 {
+    font-size: 70px; 
+  }
+
+  .whycontent div h2 {
+    font-size: 40px; }
+
+  .whycontent div p {
+    font-size: 18px; 
+  }
+
+
+
+}
+
+@media (max-width: 768px) and (min-width: 469px) {
+  .whycontent div h1 {
+    font-size: 65px; 
+  }
+  .whycontent div h2 {
+    font-size: 30px; 
+  }
+  .whycontent div p {
+    font-size: 16px; 
+  }
+  .whycontent div{
+    border-radius: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .whycontent div h1 {
+    font-size: 60px; 
+  }
+  .whycontent div h2 {
+    font-size: 25px; 
+  }
+  .whycontent div p {
+    font-size: 14px; 
+  }
+}
+
+
+.zaftersales{
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  background-color: #181818;
+  min-height: 40vh;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  flex-direction: column; 
+  padding-top: 60px; 
+  color: white;
+}
+
+.aftersalescontent{
+  width: 70%;
+}
+
+@media (max-width: 600px) {
+.zaftersales{
+  margin-top: 20px;
+}
+}
+
+.process-section {
+  display: flex;
+  align-items: center;
+  background-color: #181818;
+  color: #000;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.process-container {
+  background-color: #D3D3D3;
+  padding: 20px;
+  flex: 1;
+  max-width: 40%;
+  border-radius: 10px;
+}
+
+.process-container h2 {
+  margin-bottom: 15px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.step span {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px){
+  .process-section {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .process-container, .image-container {
+      max-width: 100%;
+  }
+
+  .image-container {
+      margin-top: 20px;
+}
+
+}
+
+.procedure-section {
+  display: flex;
+  background-color: #D3D3D3;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.procedure-container {
+  flex: 1;
+}
+
+.procedure-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.title-container {
+  flex: 1;
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .procedure-section {
+      flex-direction: column;
+      
+  }
+
+  .title-container {
+      text-align: center;
+      margin-top: 20px;
+  }
+}
+
+
+
+
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.footer-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-container h2 {
+  margin-bottom: 10px;
+}
+
+.footer-container p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.logo {
+  width: 120px;
+  margin: 10px 0;
+}
+
+.social-icons {
+  margin: 15px 0;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ddd;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ddd;
+}

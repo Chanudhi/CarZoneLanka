@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Price Breakdown</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        h4 {
+            color: #555;
+            margin-top: -10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+            background-color: #f8f9fa;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="vehicleContainer"></div>
+
+    <script>
+        
+
+        
+
+        function downloadPDF(index) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const vehicle = vehicles[index];
+
+            doc.setFont("helvetica", "bold");
+            doc.text(vehicle.name, 20, 20);
+            doc.setFont("helvetica", "normal");
+            doc.text(vehicle.details, 20, 30);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("Price Breakdown", 20, 40);
+
+            let yPos = 50;
+            vehicle.priceBreakdown.forEach(entry => {
+                doc.text(`${entry.item}: LKR ${entry.cost}`, 20, yPos);
+                yPos += 10;
+            });
+
+            doc.text(`Total Cost: LKR ${vehicle.priceBreakdown.reduce((sum, entry) => sum + parseInt(entry.cost.replace(/,/g, "")), 0).toLocaleString()}`, 20, yPos + 10);
+
+            doc.save(`${vehicle.name}-price-breakdown.pdf`);
+        }
+
+        function sendWhatsApp(index) {
+            const vehicle = vehicles[index];
+            let phoneNumber = "94726840343";
+
+            let message = `🚗 *${vehicle.name}* 📋\n`;
+            message += `${vehicle.details}\n\n`;
+            message += "*Price Breakdown:*\n";
+
+            vehicle.priceBreakdown.forEach(entry => {
+                message += `🔹 *${entry.item}*: ${entry.cost}\n`;
+            });
+
+            let totalCost = vehicle.priceBreakdown.reduce((sum, entry) => sum + parseInt(entry.cost.replace(/,/g, "")), 0);
+            message += `\n🟢 *Total Cost*: LKR ${totalCost.toLocaleString()}\n\n`;
+            message += "📎 Want to know more about this vehicle?";
+
+            let whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.location.href = whatsappURL;
+        }
+
+        generateTables();
+    </script>
+
+</body>
+</html>

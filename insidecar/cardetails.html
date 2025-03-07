@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="c_styles.css">
+</head>
+<body>
+
+    <h1>Car Details</h1>
+    <div class="details-container">
+        <p><strong>Lot Number:</strong> <span id="lotNumber"></span></p>
+        <p><strong>Auction Date:</strong> <span id="auctionDate"></span></p>
+        <p><strong>Year:</strong> <span id="year"></span></p>
+        <p><strong>Chassis ID:</strong> <span id="chassisID"></span></p>
+        <p><strong>Engine:</strong> <span id="engine"></span></p>
+        <p><strong>CC:</strong> <span id="cc"></span></p>
+        <p><strong>Mileage:</strong> <span id="mileage"></span></p>
+        <p><strong>Price:</strong> <span id="price"></span></p>
+    </div>
+
+    <script>
+        // Retrieve car details from localStorage
+        const carDetails = JSON.parse(localStorage.getItem("selectedCar"));
+
+        if (carDetails) {
+            document.getElementById("lotNumber").innerText = carDetails.lotNumber;
+            document.getElementById("auctionDate").innerText = carDetails.auctionDate;
+            document.getElementById("year").innerText = carDetails.year;
+            document.getElementById("chassisID").innerText = carDetails.chassisID;
+            document.getElementById("engine").innerText = carDetails.engine;
+            document.getElementById("cc").innerText = carDetails.cc;
+            document.getElementById("mileage").innerText = carDetails.mileage;
+            document.getElementById("price").innerText = carDetails.price;
+        } else {
+            document.body.innerHTML = "<h2>No car details found</h2>";
+        }
+    </script>
+
+</body>
+</html>

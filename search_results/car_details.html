@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+
+        .table-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <h2>Car Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Model</th>
+                    <th>Engine</th>
+                    <th>Transmission</th>
+                    <th>Year</th>
+                    <th>Chassis ID</th>
+                    <th>Color</th>
+                    <th>Mileage</th>
+                    <th>Grade</th>
+                    <th>Price</th>
+                    <th>Auction</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img id="carImage" src="" alt="Car Image"></td>
+                    <td id="carModel"></td>
+                    <td id="carEngine"></td>
+                    <td id="carTransmission"></td>
+                    <td id="carYear"></td>
+                    <td id="carChassis"></td>
+                    <td id="carColor"></td>
+                    <td id="carMileage"></td>
+                    <td id="carGrade"></td>
+                    <td id="carPrice"></td>
+                    <td id="carAuction"></td>
+                    <td id="carLocation"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Get the query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Get the values from the query parameters and display them in the table
+        document.getElementById("carImage").src = `https://14.ajes.com/imgs/${urlParams.get("image")}&h=200`;
+        document.getElementById("carModel").textContent = urlParams.get("model");
+        document.getElementById("carEngine").textContent = urlParams.get("engine");
+        document.getElementById("carTransmission").textContent = urlParams.get("transmission");
+        document.getElementById("carYear").textContent = urlParams.get("year");
+        document.getElementById("carChassis").textContent = urlParams.get("chassis");
+        document.getElementById("carColor").textContent = urlParams.get("color");
+        document.getElementById("carMileage").textContent = urlParams.get("mileage");
+        document.getElementById("carGrade").textContent = urlParams.get("grade");
+        document.getElementById("carPrice").textContent = urlParams.get("price");
+        document.getElementById("carAuction").textContent = urlParams.get("auction");
+        document.getElementById("carLocation").textContent = urlParams.get("location");
+    </script>
+
+</body>
+</html>

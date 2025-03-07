@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="c_styles.css">
+    <link rel="stylesheet" href="c-insidecar.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        #image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="zhomebanner">
+        <div class="zbannercontent">
+            <img src="mainimg.png" class="zbannerimage" title="mainimg">
+            <img src="logowhite.png" class="bannerlogo" title="logowhite">
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 50px;">
+        <div class="modelSelect">
+            <select class="box" id="make" title="Select Make">
+                <option value="default">Make</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Ford">Ford</option>
+                <option value="Mazda">Mazda</option>
+            </select>
+
+            <select class="box" id="model" title="Select Model">
+                <option value="default">Model</option>
+                
+            </select>
+
+            <select class="box" id="year" title="Select Year">
+                <option value="default">Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+            </select>
+
+            <select class="box" id="grade" title="Select Grade">
+                <option value="default">Grade</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4.5">4.5</option>
+                <option value="4">4</option>
+                <option value="3.5">3.5</option>
+            </select>
+
+            <select class="box" id="mileage" title="Select Mileage">
+                <option value="default">Mileage</option>
+                <option value="5000">706,000 km </option>
+                <option value="10000">10,000 Km</option>
+                <option value="15000">15,000 Km</option>
+            </select>
+
+            <button onclick="showAuctionTable()">Search</button>
+        </div>
+    </div>
+
+
+    <div class="auction-container" style="margin-bottom: 100px;">
+        <div class="navigation">
+            <button class="nav-button">Previous</button>
+            <button class="nav-button">Next</button>
+        </div>
+        <div class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+
+                        <th>photos</th>
+                        <th>Lot Number</th>
+                        <th>Auction Date</th>
+                        <th>Auction</th>
+                        <th>Year</th>
+                        <th>Chassis ID</th>
+                        <th>Engine cc</th>
+                        <th>Mileage</th>
+                        <th>Grade</th>
+                        <th>Status</th>
+                        <th>GearBox</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img id="carImage" src="" alt="Car Image"></td>
+                        <td id="carModel"></td>
+                        <td id="carEngine"></td>
+                        <td id="carTransmission"></td>
+                        <td id="carYear"></td>
+                        <td id="carChassis"></td>
+                        <td id="carColor"></td>
+                        <td id="carMileage"></td>
+                        <td id="carGrade"></td>
+                        <td id="carPrice"></td>
+                        <td id="carAuction"></td>
+                        <td id="carLocation"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    <div class="CL-container" style="margin-bottom: 50px;">
+        <div class="CL-left-section">
+            <div id="image-container"></div>
+        </div>
+
+        <div class="CL-right-section">
+            <h3>Price Breakdown</h3>
+            <div id="loading">Loading quotation...</div>
+            <div id="results"></div>
+        </div>
+        
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <h2>About us</h2>
+            <p>We at CarZone Lanka (PVT) Ltd provide the most informed and reliable importing service of
+                Japanese and other foreign automobiles.</p>
+            <img src="carzonelogo.png" alt="CarZone Logo" class="logo">
+            <div class="social-icons">
+                <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Auction</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+
+        
+
+        function downloadPDF(index) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const vehicle = vehicles[index];
+
+            doc.setFont("helvetica", "bold");
+            doc.text(vehicle.name, 20, 20);
+            doc.setFont("helvetica", "normal");
+            doc.text(vehicle.details, 20, 30);
+
+            doc.setFont("helvetica", "bold");
+            doc.text("Price Breakdown", 20, 40);
+
+            let yPos = 50;
+            vehicle.priceBreakdown.forEach(entry => {
+                doc.text(`${entry.item}: LKR ${entry.cost}`, 20, yPos);
+                yPos += 10;
+            });
+
+            doc.text(`Total Cost: LKR ${vehicle.priceBreakdown.reduce((sum, entry) => sum + parseInt(entry.cost.replace(/,/g, "")), 0).toLocaleString()}`, 20, yPos + 10);
+
+            doc.save(`${vehicle.name}-price-breakdown.pdf`);
+        }
+
+        function sendWhatsApp(index) {
+            const vehicle = vehicles[index];
+            let phoneNumber = "94726840343";
+
+            let message = `🚗 *${vehicle.name}* 📋\n`;
+            message += `${vehicle.details}\n\n`;
+            message += "*Price Breakdown:*\n";
+
+            vehicle.priceBreakdown.forEach(entry => {
+                message += `🔹 *${entry.item}*: ${entry.cost}\n`;
+            });
+
+            let totalCost = vehicle.priceBreakdown.reduce((sum, entry) => sum + parseInt(entry.cost.replace(/,/g, "")), 0);
+            message += `\n🟢 *Total Cost*: LKR ${totalCost.toLocaleString()}\n\n`;
+            message += "📎 Want to know more about this vehicle?";
+
+            let whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.location.href = whatsappURL;
+        }
+
+        // generateTables();
+
+
+
+
+        fetch('http://localhost:3000/get-images')  // Update the URL to the backend server
+            // Request image URLs from the backend
+            .then(response => response.json())
+            .then(imageUrls => {
+                const container = document.getElementById('image-container');
+                imageUrls.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    container.appendChild(img);
+                });
+            })
+            .catch(error => console.error('Error fetching images:', error));
+        // Get the query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get the values from the query parameters and display them in the table
+        document.getElementById("carImage").src = urlParams.get("photos");
+        document.getElementById("carModel").textContent = urlParams.get("model");
+        document.getElementById("carEngine").textContent = urlParams.get("engine");
+        document.getElementById("carTransmission").textContent = urlParams.get("transmission");
+        document.getElementById("carYear").textContent = urlParams.get("year");
+        document.getElementById("carChassis").textContent = urlParams.get("chassis");
+        document.getElementById("carColor").textContent = urlParams.get("color");
+        document.getElementById("carMileage").textContent = urlParams.get("mileage");
+        document.getElementById("carGrade").textContent = urlParams.get("grade");
+        document.getElementById("carPrice").textContent = urlParams.get("price");
+        document.getElementById("carAuction").textContent = urlParams.get("auction");
+        document.getElementById("carLocation").textContent = urlParams.get("location");
+
+
+        //quatation
+
+        async function loadQuotation() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const requiredParams = [];
+
+                // Validate all required parameters
+                const missing = requiredParams.filter(p => !params.has(p));
+                if (missing.length > 0) {
+                    throw new Error(`Missing parameters: ${missing.join(', ')}`);
+                }
+
+                // Construct API URL
+                const apiUrl = `/calculate-tax?${params.toString()}`;
+
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Failed to fetch data');
+
+                const { taxData } = await response.json();
+                renderQuotation(taxData);
+            } catch (error) {
+                document.getElementById('loading').remove();
+                document.getElementById('results').innerHTML =
+                    `<p style="color: red">Error: ${error.message}</p>`;
+            }
+        }
+
+        function renderQuotation(data) {
+            let html = `
+        <h2>${urlParams.get("model")} ${urlParams.get("model")} (${urlParams.get("year")})</h2>
+        <table>
+          <thead><tr><th>Field</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Grade</td><td>${data.grade}</td></tr>
+            <tr><td>Engine Type</td><td>${data.engineType}</td></tr>
+            <tr><td>Engine</td><td>${data.engine}</td></tr>
+            <tr><td>Purchase Price</td><td>${/*formatNumber*/(data.purchasePriceJPY)} JPY</td></tr>
+            <tr><td>Currency Rate</td><td>${formatNumber(data.currencyRate)}</td></tr>
+            <tr class="total-row"><td>CIF Value</td><td>${formatNumber(data.CIF)}</td></tr>
+            <tr class="total-row"><td>Custom CIF Base</td><td>${formatNumber(data.customCIFBase)}</td></tr>
+            <tr class="total-row"><td>Excise Duty</td><td>${formatNumber(data.exciseDuty)}</td></tr>
+            <tr class="total-row"><td>CID</td><td>${formatNumber(data.cid)}</td></tr>
+            <tr class="total-row"><td>CID Surcharge</td><td>${formatNumber(data.cidSurcharge)}</td></tr>
+            <tr class="total-row"><td>VAT</td><td>${formatNumber(data.vat)}</td></tr>
+            <tr class="total-row"><td>Luxury Tax</td><td>${formatNumber(data.luxuryTax)}</td></tr>
+            <tr class="total-row"><td>Total Duty</td><td>${formatNumber(data.totalDuty)}</td></tr>
+            <tr class="total-row"><td>Service Charges</td><td>${formatNumber(data.serviceChargers)}</td></tr>
+            <tr class="total-row"><td>Total Cost</td><td>${formatNumber(data.totalCost)}</td></tr>
+          </tbody>
+        </table>`;
+
+            document.getElementById('loading').remove();
+            document.getElementById('results').innerHTML = html;
+        }
+
+        function formatNumber(value) {
+            return new Intl.NumberFormat('en-LK', {
+                style: 'currency',
+                currency: 'LKR',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(value);
+        }
+
+        // Load quotation data
+        loadQuotation();
+
+
+    </script>
+
+</body>
+
+</html>
